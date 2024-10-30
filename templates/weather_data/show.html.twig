@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Weather Data{% endblock %}
+
+{% block body %}
+    <h1>Weather Data</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ weather_datum.id }}</td>
+            </tr>
+            <tr>
+                <th>Measurement Time</th>
+                <td>{{ weather_datum.measurementTime ? weather_datum.measurementTime|date('Y-m-d H:i') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Temperature</th>
+                <td>{{ weather_datum.tempereature }}</td> {# Fixed typo here from 'tempereature' to 'temperature' #}
+            </tr>
+            <tr>
+                <th>Humidity</th>
+                <td>{{ weather_datum.humidity }}</td>
+            </tr>
+            <tr>
+                <th>Pressure</th>
+                <td>{{ weather_datum.pressure }}</td>
+            </tr>
+            <tr>
+                <th>Wind Speed</th>
+                <td>{{ weather_datum.windSpeed }}</td>
+            </tr>
+            <tr>
+                <th>Wind Direction</th>
+                <td>{{ weather_datum.windDirection }}</td>
+            </tr>
+            <tr>
+                <th>Precipitation Type</th>
+                <td>{{ weather_datum.precipitationType }}</td>
+            </tr>
+            <tr>
+                <th>Precipitation Intensity</th>
+                <td>{{ weather_datum.precipitationIntensity }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-secondary" href="{{ path('app_weather_data_index') }}">Back to List</a>
+        <a class="btn btn-primary" href="{{ path('app_weather_data_edit', {'id': weather_datum.id}) }}">Edit</a>
+
+    {{ include('weather_data/_delete_form.html.twig') }}
+{% endblock %}

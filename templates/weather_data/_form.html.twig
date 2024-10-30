@@ -1,0 +1,59 @@
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.measurement_time) }}
+    {{ form_widget(form.measurement_time) }}
+    {{ form_errors(form.measurement_time) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.tempereature) }}
+    {{ form_widget(form.tempereature) }}
+    {{ form_errors(form.tempereature) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.humidity) }}
+    {{ form_widget(form.humidity) }}
+    {{ form_errors(form.humidity) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.pressure) }}
+    {{ form_widget(form.pressure) }}
+    {{ form_errors(form.pressure) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.wind_speed) }}
+    {{ form_widget(form.wind_speed) }}
+    {{ form_errors(form.wind_speed) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.wind_direction) }}
+    {{ form_widget(form.wind_direction) }}
+    {{ form_errors(form.wind_direction) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.precipitation_type) }}
+    {{ form_widget(form.precipitation_type) }}
+    {{ form_errors(form.precipitation_type) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.precipitation_intensity) }}
+    {{ form_widget(form.precipitation_intensity) }}
+    {{ form_errors(form.precipitation_intensity) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.location_id) }}
+    {{ form_widget(form.location_id) }}
+    {{ form_errors(form.location_id) }}
+</div>
+
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

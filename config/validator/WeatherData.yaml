@@ -1,0 +1,42 @@
+App\Entity\WeatherData:
+  properties:
+    measurement_time:
+      - NotNull: ~
+      - Type:
+          type: \DateTimeInterface
+
+    tempereature:
+      - NotNull: ~
+      - Type:
+          type: string
+      - Range:
+          min: -100
+          max: 100
+
+    humidity:
+      - NotNull: ~
+      - Type:
+          type: string
+      - Range:
+          min: 0
+          max: 100
+
+    pressure:
+      - Type:
+          type: string
+
+    wind_speed:
+      - Type:
+          type: string
+
+    wind_direction:
+      - Length:
+          max: 3
+
+    precipitation_type:
+      - Length:
+          max: 20
+
+    precipitation_intensity:
+      - Type:
+          type: string

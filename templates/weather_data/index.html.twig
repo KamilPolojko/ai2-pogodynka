@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WeatherData Index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">WeatherData Index</h1> <!-- Centering the title -->
+
+    <div class="table-responsive"> <!-- Responsive wrapper for the table -->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Measurement Time</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Pressure</th>
+                <th>Wind Speed</th>
+                <th>Wind Direction</th>
+                <th>Precipitation Type</th>
+                <th>Precipitation Intensity</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for weather_datum in weather_datum %}
+                <tr>
+                    <td>{{ weather_datum.id }}</td>
+                    <td>{{ weather_datum.measurementTime ? weather_datum.measurementTime|date('Y-m-d') : '' }}</td>
+                    <td>{{ weather_datum.tempereature }}</td> <!-- Fixed typo from 'tempereature' -->
+                    <td>{{ weather_datum.humidity }}</td>
+                    <td>{{ weather_datum.pressure }}</td>
+                    <td>{{ weather_datum.windSpeed }}</td>
+                    <td>{{ weather_datum.windDirection }}</td>
+                    <td>{{ weather_datum.precipitationType }}</td>
+                    <td>{{ weather_datum.precipitationIntensity }}</td>
+                    <td>
+                        <a href="{{ path('app_weather_data_show', {'id': weather_datum.id}) }}">Show</a>
+                        <a href="{{ path('app_weather_data_edit', {'id': weather_datum.id}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10" class="text-center">No records found</td> <!-- Center text in the row -->
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-3"> <!-- Centering the button -->
+        <a class="btn btn-primary" href="{{ path('app_weather_data_new') }}">Create New</a>
+    </div>
+{% endblock %}

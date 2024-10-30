@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+{% for field in form %}
+    <div class="mb-3" style="position: relative;">
+        {{ form_label(field) }}
+        {{ form_errors(field) }}
+
+
+        {% if field.vars.block_prefixes[0] == 'choice' %}
+            {{ form_widget(field, {'attr': {'class': 'form-select'}}) }}
+        {% else %}
+            {{ form_widget(field, {'attr': {'class': 'form-control'}}) }}
+        {% endif %}
+
+    </div>
+{% endfor %}
+
+
+<button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
